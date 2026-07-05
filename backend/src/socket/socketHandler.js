@@ -1,4 +1,5 @@
 const { nanoid } = require("nanoid");
+const mongoose = require("mongoose");
 const Participant = require("../models/Participant");
 const { ROLES, isHost, canControlPlayback } = require("../constants/roles");
 
@@ -39,6 +40,15 @@ function registerSocketHandlers(io, socket, roomManager) {
       role: participant.role,
       participants: room.getParticipantsList(),
     });
+
+    if (mongoose.connection.readyState === 1) {
+      const RoomMeta = require("../models/RoomMeta");
+      RoomMeta.findOneAndUpdate(
+        { roomId },
+        { roomId, lastActiveAt: new Date() },
+        { upsert: true }
+      ).catch((err) => console.error("RoomMeta update failed:", err.message));
+    }
   });
 
   socket.on("leave_room", () => {
