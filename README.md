@@ -6,8 +6,6 @@ permissions (Host / Moderator / Participant). Built with the MERN stack
 
 **🔗 Live URL:** https://youtube-watch-party-alpha.vercel.app
 
-**🔗 Backend API:** https://youtube-watch-party-a30m.onrender.com
-
 > Note: the backend is hosted on Render's free tier, which sleeps after
 > inactivity. The first request after idle time may take 30–50 seconds to
 > wake up — this is expected and not a bug.
