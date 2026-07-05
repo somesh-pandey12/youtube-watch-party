@@ -130,7 +130,6 @@ watch-party/
 ```bash
 cd backend
 cp .env.example .env
-# fill in MONGO_URI in .env (optional but recommended)
 npm install
 npm run dev
 ```
@@ -140,7 +139,6 @@ Runs on `http://localhost:5000`.
 ```bash
 cd frontend
 cp .env.example .env
-# VITE_SERVER_URL should point to http://localhost:5000
 npm install
 npm run dev
 ```
